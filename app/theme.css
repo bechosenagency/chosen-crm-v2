@@ -1,0 +1,202 @@
+/* ────────────────────────────────────────────────
+   EXECUTIVE SUITE — DESIGN-TOKEN SOURCE-OF-TRUTH
+   Only this file contains hard RGB/HEX values.
+   Everything else (globals.css, Tailwind, React)
+   consumes the variables declared here ⬇︎
+   ───────────────────────────────────────────── */
+
+/* ==============================
+   REFINED NOIR SCHEME (DARK)
+   ============================== */
+   :root[data-theme="exec-dark"],
+   :root[data-theme="refined-noir"] {
+    /* 1 ▸ Background - Refined Noir */
+    --c-bg-grad-from: #0A0A0B;
+    --c-bg-grad-to:   #0A0A0B;
+  
+    /* 2 ▸ Neutral surfaces - Refined Noir */
+    --c-bg:           #0A0A0B;                    /* deep black page */
+    --c-surface-1:    #141415;                   /* cards / popovers */
+    --c-surface-2:    #1A1A1C;                   /* inset areas       */
+    --c-surface:      var(--c-surface-1);        /* alias for legacy  */
+    --c-border:       rgba(255 255 255 / 0.08);  /* subtle borders */
+    --c-sidebar:      #0F0F10;                   /* sidebar */
+  
+    /* 3 ▸ Brand + accent - Refined Noir */
+    --c-primary:   #0066FF;  /* refined blue */
+    --c-secondary: #8b5cf6;  /* violet      */
+    --c-accent:    #06b6d4;  /* cyan        */
+  
+    /* 4 ▸ Feedback */
+    --c-success: #10b981;
+    --c-warning: #f59e0b;
+    --c-error:   #dc2626;
+  
+    /* 5 ▸ Typography colours */
+    --c-text-primary:   #ffffff;
+    --c-text-secondary: rgba(255 255 255 / 0.70);
+    --c-text-muted:     rgba(255 255 255 / 0.50);
+  
+    /* 6 ▸ Decorative noise */
+    --noise-opacity: 0.02;
+  }
+
+  /* Legacy dark theme mapping */
+  :root[data-theme="exec-dark-legacy"] {
+    /* 1 ▸ Background gradient */
+    --c-bg-grad-from: #0a0e27;
+    --c-bg-grad-to:   #151929;
+  
+    /* 2 ▸ Neutral surfaces */
+    --c-bg:           var(--c-bg-grad-to);         /* page */
+    --c-surface-1:    rgba(255 255 255 / 0.05);    /* cards / popovers */
+    --c-surface-2:    rgba(255 255 255 / 0.08);    /* inset areas       */
+    --c-surface:      var(--c-surface-1);          /* alias for legacy  */
+    --c-border:       rgba(255 255 255 / 0.10);
+    --c-sidebar:      #101316;
+  
+    /* 3 ▸ Brand + accent */
+    --c-primary:   #2575ff;  /* sapphire  */
+    --c-secondary: #8b5cf6;  /* violet    */
+    --c-accent:    #06b6d4;  /* cyan      */
+  
+    /* 4 ▸ Feedback */
+    --c-success: #10b981;
+    --c-warning: #f59e0b;
+    --c-error:   #dc2626;
+  
+    /* 5 ▸ Typography colours */
+    --c-text-primary:   #ffffff;
+    --c-text-secondary: rgba(255 255 255 / 0.70);
+    --c-text-muted:     rgba(255 255 255 / 0.50);
+  
+    /* 6 ▸ Decorative noise */
+    --noise-opacity: 0.03;
+  }
+  
+  
+  /* ==============================
+     PREMIUM BRIGHT THEME (LOGIN)
+     ============================== */
+  :root[data-theme="premium-bright"] {
+    /* 1 ▸ Background - Clean Professional */
+    --c-bg-grad-from: #FFFFFF;
+    --c-bg-grad-to:   #F8FAFC;
+  
+    /* 2 ▸ Neutral surfaces - Bright & Clean */
+    --c-bg:           #FFFFFF;                    /* clean white page */
+    --c-surface-1:    #FFFFFF;                    /* cards / popovers */
+    --c-surface-2:    #F8FAFC;                    /* subtle gray areas */
+    --c-surface:      var(--c-surface-1);         /* alias for legacy  */
+    --c-border:       #E5E7EB;                    /* subtle definition */
+    --c-sidebar:      #FFFFFF;                    /* sidebar */
+  
+    /* 3 ▸ Brand + accent - Professional */
+    --c-primary:   #0066FF;  /* premium blue */
+    --c-secondary: #8b5cf6;  /* violet      */
+    --c-accent:    #10B981;  /* success green */
+  
+    /* 4 ▸ Feedback */
+    --c-success: #10b981;
+    --c-warning: #f59e0b;
+    --c-error:   #dc2626;
+  
+    /* 5 ▸ Typography colours */
+    --c-text-primary:   #1A1A1A;                  /* high contrast black */
+    --c-text-secondary: #6B7280;                  /* gray-600 */
+    --c-text-muted:     #9CA3AF;                  /* gray-400 */
+  
+    /* 6 ▸ Decorative noise */
+    --noise-opacity: 0;                            /* no noise for clean look */
+  }
+
+  /* ==============================
+     REFINED NOIR LIGHT MODE
+     ============================== */
+  :root[data-theme="refined-noir-light"] {
+    /* 1 ▸ Background - Refined Noir Light */
+    --c-bg-grad-from: #FAFAFA;
+    --c-bg-grad-to:   #FAFAFA;
+  
+    /* 2 ▸ Neutral surfaces - Light & Clean */
+    --c-bg:           #FAFAFA;                    /* light background */
+    --c-surface-1:    #FFFFFF;                    /* cards / popovers */
+    --c-surface-2:    #F5F5F7;                    /* subtle background */
+    --c-surface:      var(--c-surface-1);         /* alias for legacy  */
+    --c-border:       rgba(0, 0, 0, 0.06);        /* subtle borders */
+    --c-sidebar:      #FFFFFF;                    /* sidebar */
+  
+    /* 3 ▸ Brand + accent - Refined Noir Light */
+    --c-primary:   #0055E5;  /* brand primary */
+    --c-secondary: #5E5CE6;  /* info purple */
+    --c-accent:    #00D4AA;  /* success teal */
+  
+    /* 4 ▸ Feedback */
+    --c-success: #00D4AA;
+    --c-warning: #FFB800;
+    --c-error:   #FF3B30;
+  
+    /* 5 ▸ Typography colours */
+    --c-text-primary:   #0A0A0B;                  /* primary text */
+    --c-text-secondary: rgba(10, 10, 11, 0.65);  /* secondary text */
+    --c-text-muted:     rgba(10, 10, 11, 0.45);  /* muted text */
+  
+    /* 6 ▸ Decorative noise */
+    --noise-opacity: 0;                            /* no noise for clean look */
+  }
+  
+  /* ==============================
+     EXECUTIVE SUITE LIGHT (DEFAULT)
+     ============================== */
+  :root[data-theme="exec-suite-light"],
+  :root[data-theme="exec-light"] {
+    /* 1 ▸ Background - Executive Suite Light */
+    --c-bg-grad-from: #F8FAFC;
+    --c-bg-grad-to:   #F8FAFC;
+  
+    /* 2 ▸ Neutral surfaces - Premium & Elevated */
+    --c-bg:           #F8FAFC;                    /* main background */
+    --c-surface-1:    #FFFFFF;                    /* card background */
+    --c-surface-2:    #F1F5F9;                    /* secondary panels */
+    --c-surface:      var(--c-surface-1);         /* alias */
+    --c-surface-muted: #F1F5F9;                   /* secondary panels */
+    --c-border:       rgba(0, 0, 0, 0.06);        /* subtle borders */
+    --c-sidebar:      #1E293B;                    /* sidebar dark slate */
+    --c-sidebar-bg:   #1E293B;                    /* sidebar dark slate alias */
+  
+    /* 3 ▸ Brand + accent - Executive Suite */
+    --c-primary:       #3B82F6;                   /* primary blue */
+    --c-primary-hover: #2563EB;                   /* primary hover */
+    --c-secondary:     #10B981;                   /* success green instead of violet */
+    --c-accent:        #10B981;                   /* success green */
+    --c-success:       #10B981;                   /* success green */
+    --c-premium:       #F59E0B;                   /* gold highlight */
+  
+    /* 4 ▸ Feedback */
+    --c-warning: #F59E0B;
+    --c-error:   #DC2626;
+  
+    /* 5 ▸ Typography colours */
+    --c-text-primary:   #1A1A1A;                  /* high contrast black */
+    --c-text-secondary: #6B7280;                  /* gray-600 */
+    --c-text-muted:     #9CA3AF;                  /* gray-400 */
+    --c-text-sidebar:   #F8FAFC;                  /* light text for sidebar */
+  
+    /* 6 ▸ Visual Effects - removed custom ones, will use Tailwind */
+    --noise-opacity: 0;
+  }
+  
+  /* ------------------------------------------------
+     UTILITY HELPERS  (used by Tailwind & components)
+     ------------------------------------------------ */
+  .bg-glass {
+    background: var(--c-surface-1);
+    backdrop-filter: blur(12px);
+  }
+  
+  .text-gradient {
+    /* relies on gradient defs in tailwind.config */
+    @apply bg-primary-grad bg-clip-text text-transparent;
+  }
+  
+  

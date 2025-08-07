@@ -1,26 +1,169 @@
-@import "tailwindcss";
+/* app/globals.css -------------------------------------------------------- */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* 1 ▸ source tokens */
+@import "./theme.css";
+
+/* 2 ▸ Tailwind layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -----------------------------------------------------------------------
+   BRIDGE real tokens → ShadCN / Tailwind HSL names
+   --------------------------------------------------------------------- */
+:root,
+:root[data-theme="exec-light"] {
+  /* neutrals */
+  --background:            var(--c-bg);
+  --foreground:            var(--c-text-primary);
+
+  --card:                  var(--c-surface-1);   /* level-1 surface  */
+  --card-foreground:       var(--c-text-primary);
+  --popover:               var(--c-surface-1);
+  --popover-foreground:    var(--c-text-primary);
+
+  /* new helpers ↓ */
+  --surface-1:             var(--c-surface-1);
+  --surface-2:             var(--c-surface-2);
+
+  /* brand & feedback */
+  --primary:               var(--c-primary);
+  --primary-foreground:    #ffffff;
+  --secondary:             var(--c-secondary);
+  --secondary-foreground:  #ffffff;
+  --accent:                var(--c-accent);
+  --accent-foreground:     #ffffff;
+  --destructive:           var(--c-error);
+  --destructive-foreground:#ffffff;
+
+  /* misc */
+  --muted:                 var(--c-surface-2);
+  --muted-foreground:      var(--c-text-secondary);
+  --border:                var(--c-border);
+  --input:                 var(--c-border);
+  --ring:                  var(--c-primary);
+  --radius:                0.5rem;
+
+  --sidebar:               var(--c-sidebar);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+[data-theme="exec-dark"] {
+  /* dark uses same mapping – underlying c-vars swap in theme.css */
+  @extend :root;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+[data-theme="premium-bright"] {
+  /* neutrals */
+  --background:            var(--c-bg);
+  --foreground:            var(--c-text-primary);
+
+  --card:                  var(--c-surface-1);
+  --card-foreground:       var(--c-text-primary);
+  --popover:               var(--c-surface-1);
+  --popover-foreground:    var(--c-text-primary);
+
+  /* surfaces */
+  --surface-1:             var(--c-surface-1);
+  --surface-2:             var(--c-surface-2);
+
+  /* brand & feedback */
+  --primary:               var(--c-primary);
+  --primary-foreground:    #ffffff;
+  --secondary:             var(--c-secondary);
+  --secondary-foreground:  #ffffff;
+  --accent:                var(--c-accent);
+  --accent-foreground:     #ffffff;
+  --destructive:           var(--c-error);
+  --destructive-foreground:#ffffff;
+
+  /* misc */
+  --muted:                 var(--c-surface-2);
+  --muted-foreground:      var(--c-text-secondary);
+  --border:                var(--c-border);
+  --input:                 var(--c-border);
+  --ring:                  var(--c-primary);
+  --radius:                0.5rem;
+
+  --sidebar:               var(--c-sidebar);
+}
+
+[data-theme="exec-suite-light"] {
+  /* neutrals */
+  --background:            var(--c-bg);
+  --foreground:            var(--c-text-primary);
+
+  --card:                  var(--c-surface-1);
+  --card-foreground:       var(--c-text-primary);
+  --popover:               var(--c-surface-1);
+  --popover-foreground:    var(--c-text-primary);
+
+  /* surfaces */
+  --surface-1:             var(--c-surface-1);
+  --surface-2:             var(--c-surface-2);
+
+  /* brand & feedback */
+  --primary:               var(--c-primary);
+  --primary-foreground:    #ffffff;
+  --secondary:             var(--c-secondary);
+  --secondary-foreground:  #ffffff;
+  --accent:                var(--c-accent);
+  --accent-foreground:     #ffffff;
+  --destructive:           var(--c-error);
+  --destructive-foreground:#ffffff;
+
+  /* misc */
+  --muted:                 var(--c-surface-2);
+  --muted-foreground:      var(--c-text-secondary);
+  --border:                var(--c-border);
+  --input:                 var(--c-border);
+  --ring:                  var(--c-primary);
+  --radius:                0.5rem;
+
+  --sidebar:               var(--c-sidebar);
+  
+  /* Executive Suite specific */
+  --premium:               var(--c-premium);
+}
+
+/* -----------------------------------------------------------------------
+   BASE RESET
+   --------------------------------------------------------------------- */
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    @apply antialiased;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* -----------------------------------------------------------------------
+   UTILITIES   (unchanged from your file)
+   --------------------------------------------------------------------- */
+@layer utilities {
+  .text-metric      { @apply tracking-tight tabular-nums; font-feature-settings: "tnum" on,"lnum" on,"zero" on; }
+  .transition-premium { @apply transition-all duration-300 ease-out; }
+  .hover-lift         { @apply hover:scale-[1.02] hover:shadow-premium-lg transition-all duration-300; }
+  .glow-primary       { @apply shadow-glow; }
+  .text-gradient      { @apply bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent; }
+  
+  /* Custom Focus Indicators for Accessibility */
+  .focus-ring { @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background; }
+  
+  
+  /* Executive Suite enhanced button hover states */
+  [data-theme="exec-suite-light"] button {
+    transition: all 0.2s ease;
+  }
+  
+  [data-theme="exec-suite-light"] button:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+  
+  /* Executive Suite premium gradient text */
+  [data-theme="exec-suite-light"] .text-gradient-premium {
+    @apply bg-gradient-to-r from-[#3B82F6] to-[#2563EB] bg-clip-text text-transparent;
+  }
 }

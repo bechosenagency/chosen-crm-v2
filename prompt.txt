@@ -1,0 +1,27 @@
+I'd like to create the login page for ChosenCRM.
+
+Use the Executive Light theme defined in `claude.md`. This is a simple, centered login page for authenticated users — no need to include marketing features since the main website handles that.
+
+### Layout:
+- Full screen layout
+- Centered card containing:
+  - Logo
+  - Email input
+  - Password input
+  - Sign In button (primary color: #00D6A1)
+  - Optional: OAuth section below (Google button)
+- Below the card: "Forgot password?" and "Don't have an account?" links
+
+### Style Guide:
+- Background: `#FFFFFF`
+- Card: `#F8FAFC` with subtle shadow
+- Form fields and button styled with Tailwind + shadcn/ui
+- Responsive on mobile and desktop
+- Clean, high-end look — minimal distractions
+
+### Tech:
+- Next.js 15.4 App Router
+- Place in `/app/login/page.tsx`
+- Use components from `/components/ui/*` where possible
+
+Only plan the layout and structure for now — don’t implement backend logic yet.
